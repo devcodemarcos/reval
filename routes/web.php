@@ -15,3 +15,5 @@ use App\Http\Controllers\WebController;
 */
 
 Route::get('/',  [WebController::class, 'inicio']);
+Route::get('/contacto',  [WebController::class, 'contact'])->name('contact');
+Route::get('/servicios',  [WebController::class, 'services'])->name('services');

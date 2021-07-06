@@ -68,8 +68,8 @@
                                     <li><a href="services.html?q=cilindros">Cilindros</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="servicereval.html">Servicios</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('services') }}">Servicios</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contacto</a></li>
                         </ul>
                     </div>
                 </nav>
