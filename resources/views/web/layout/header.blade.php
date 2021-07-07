@@ -56,16 +56,16 @@
                             <li class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">¿Quiénes somos? <i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="projects-single.html">Historia</a></li>
-                                    <li><a href="testimonials.html">Clientes</a></li>
+                                    <li><a href="{{ route('story') }}">Historia</a></li>
+                                    <li><a href="{{ route('clients') }}">Clientes</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Productos <i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="services.html?q=valvulas">Válvulas</a></li>
-                                    <li><a href="services.html?q=reguladores">Reguladores</a></li>
-                                    <li><a href="services.html?q=cilindros">Cilindros</a></li>
+                                    <li><a href="{{ route('products', 'valvulas') }}">Válvulas</a></li>
+                                    <li><a href="{{ route('products', 'reguladores') }}">Reguladores</a></li>
+                                    <li><a href="{{ route('products', 'cilindros') }}">Cilindros</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item"><a class="nav-link" href="{{ route('services') }}">Servicios</a></li>

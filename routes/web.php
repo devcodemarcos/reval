@@ -14,6 +14,10 @@ use App\Http\Controllers\WebController;
 |
 */
 
-Route::get('/',  [WebController::class, 'inicio']);
-Route::get('/contacto',  [WebController::class, 'contact'])->name('contact');
-Route::get('/servicios',  [WebController::class, 'services'])->name('services');
+Route::get('/', [WebController::class, 'inicio']);
+Route::get('/historia', [WebController::class, 'story'])->name('story');
+Route::get('/clientes', [WebController::class, 'clients'])->name('clients');
+Route::get('/contacto', [WebController::class, 'contact'])->name('contact');
+Route::get('/servicios', [WebController::class, 'services'])->name('services');
+
+Route::get('/productos/{category}', [WebController::class, 'products'])->name('products');

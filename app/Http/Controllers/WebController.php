@@ -2,22 +2,42 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
+// use App\Models\Product;
+use App\Models\ProductCategory;
 
 class WebController extends Controller
 {
-    public function inicio(Request $request)
+    public function inicio()
     {
         return view('web.layout');
     }
 
-    public function contact(Request $request)
+    public function story()
+    {
+        return view('web.sections.story');
+    }
+
+    public function clients()
+    {
+        return view('web.sections.clients');
+    }
+
+    public function services()
+    {
+        return view('web.sections.services');
+    }
+
+    public function contact()
     {
         return view('web.sections.contact');
     }
 
-    public function services(Request $request)
+    public function products($category)
     {
-        return view('web.sections.services');
+        $categories = ProductCategory::where('name', ucfirst($category))->firstOrFail();
+        $products = $categories->products()->paginate(6);
+        
+        return view('web.sections.products', compact('category', 'products'));
     }
 }

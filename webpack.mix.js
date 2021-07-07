@@ -13,6 +13,7 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
 .js('resources/js/contact.js', 'public/js/contact.js')
+.js('resources/js/clients.js', 'public/js/clients.js')
 mix.sass('resources/sass/style.scss', 'public/css/app.css').minify('public/css/app.css')
     .options({
         processCssUrls: false

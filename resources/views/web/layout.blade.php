@@ -15,9 +15,20 @@
     <!-- FontAwesome -->
     <link rel="stylesheet" href="{{ asset('plugins/fontawesome/css/all.min.css') }}">
 
+    <!-- slick Carousel -->
+    <link rel="stylesheet" href="{{ asset('plugins/slick/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/slick/slick-theme.css') }}">
+
+    {{--
+    <!-- Animation -->
+    <link rel="stylesheet" href="{{ asset('plugins/animate-css/animate.css') }}">
+    <!-- Colorbox -->
+    <link rel="stylesheet" href="{{ asset('plugins/colorbox/colorbox.css') }}">
+    --}}
+
     <link rel="stylesheet" type="text/css" href="{{ mix('css/app.min.css') }}">
 
-    @stack('head-css')
+    @stack('style')
 
 </head>
 
@@ -47,9 +58,16 @@
     <!-- Bootstrap jQuery -->
     <script src="{{ asset('plugins/bootstrap/bootstrap.min.js') }}" defer></script>
 
-    <!-- <script src="/app.js"></script> -->
+    {{--
+    <!-- Color box -->
+    <script src="{{ asset('plugins/colorbox/jquery.colorbox.js') }}"></script>
+    <!-- shuffle -->
+    <script src="{{ asset('plugins/shuffle/shuffle.min.js') }}" defer></script>
+    --}}
+
+    <script src="{{ mix('js/app.js') }}"></script>
     <!-- Google Map API Key-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5UWpJ9XHraahfQa4JzSMLORzeLmGQ594" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_KEY', false) }}" defer></script>
     @stack('scripts')
 </body>
 

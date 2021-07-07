@@ -5,8 +5,8 @@
 @section('content')
 
 @include('web.sections.static.cover', [
-'section' => 'Servicios',
-'wallpaper' => 'services.jpg'
+    'section' => 'Servicios',
+    'wallpaper' => 'services.jpg'
 ])
 
 <section id="main-container" class="main-container">
