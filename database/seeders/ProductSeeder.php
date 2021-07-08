@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 
 class ProductSeeder extends Seeder
 {
@@ -16,14 +15,34 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        for ($i=1; $i <= 25 ; $i++) {
+        $valves = [
+            'Válvula de aguja 1/4"' => [
+                'slug' => 'valvula-aguja-14',
+                'photo' => 'valvula-de-aguja-14.jpg'
+            ],
+            'Válvula de aguja 1/2"' => [
+                'slug' => 'valvula-aguja-12',
+                'photo' => 'valvula-de-aguja-12.jpg'
+            ],
+            'Válvula de aguja 3/4"' => [
+                'slug' => 'valvula-aguja-34',
+                'photo' => 'valvula-de-aguja-34.jpg'
+            ],
+            'Válvula de aguja 1"' => [
+                'slug' => 'valvula-aguja-1',
+                'photo' => 'valvula-de-aguja-1.jpg'
+            ]
+        ];
+        
+        foreach ($valves as $valve => $properties) {
             DB::table('products')->insert([
-                'name' => Str::random(35),
-                'description' => Str::random(250),
-                'photo' => Hash::make('photo') . '.jpg',
+                'name' => $valve,
+                'slug' => $properties['slug'],
+                'description' => 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum',
+                'photo' => $properties['photo'],
                 'file' => Hash::make('file') . '.pdf',
                 'tags' => 'Valvulas,Reguladores,Reval,Toluca,Calidad,Innovacion',
-                'product_category_id' => random_int(1, 3)
+                'product_category_id' => 1
             ]);
         }
     }

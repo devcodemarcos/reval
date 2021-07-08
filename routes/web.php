@@ -21,3 +21,4 @@ Route::get('/contacto', [WebController::class, 'contact'])->name('contact');
 Route::get('/servicios', [WebController::class, 'services'])->name('services');
 
 Route::get('/productos/{category}', [WebController::class, 'products'])->name('products');
+Route::get('/productos/{category}/{product}', [WebController::class, 'product'])->name('product');

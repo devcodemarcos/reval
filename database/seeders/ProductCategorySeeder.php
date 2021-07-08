@@ -14,9 +14,10 @@ class ProductCategorySeeder extends Seeder
      */
     public function run()
     {
-        foreach (['Valvulas', 'Reguladores', 'Cilindros'] as $product) {
+        foreach (['valvulas' => 'Válvulas', 'reguladores' => 'Reguladores', 'cilindros' => 'Cilindros'] as $slug => $product) {
             DB::table('product_category')->insert([
-                'name' => $product
+                'name' => $product,
+                'slug' => $slug
             ]);
         }
     }

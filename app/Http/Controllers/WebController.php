@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 // use Illuminate\Http\Request;
-// use App\Models\Product;
+use App\Models\Product;
 use App\Models\ProductCategory;
 
 class WebController extends Controller
@@ -35,9 +35,17 @@ class WebController extends Controller
 
     public function products($category)
     {
-        $categories = ProductCategory::where('name', ucfirst($category))->firstOrFail();
-        $products = $categories->products()->paginate(6);
+        $category = ProductCategory::where('slug', $category)->firstOrFail();
+        $products = $category->products()->paginate(3);
         
         return view('web.sections.products', compact('category', 'products'));
+    }
+
+    public function product($category, $product)
+    {
+        $product = Product::where('slug', $product)->firstOrFail();
+        $category = ProductCategory::where('slug', $category)->firstOrFail();
+        $products = Product::all()->random(3);
+        return view('web.sections.product', compact('category', 'product', 'products'));
     }
 }

@@ -57,7 +57,7 @@
             <div class="col-md-12">
                 <h3 class="column-title">Envianos un mensaje</h3>
                 <form id="contact-form" action="#" method="post" role="form">
-                    <div class="error-container"></div>
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
