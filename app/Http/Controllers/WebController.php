@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-// use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductCategory;
 
@@ -10,7 +9,7 @@ class WebController extends Controller
 {
     public function inicio()
     {
-        return view('web.layout');
+        return view('web.sections.home');
     }
 
     public function story()
@@ -37,7 +36,7 @@ class WebController extends Controller
     {
         $category = ProductCategory::where('slug', $category)->firstOrFail();
         $products = $category->products()->paginate(3);
-        
+
         return view('web.sections.products', compact('category', 'products'));
     }
 
@@ -46,6 +45,7 @@ class WebController extends Controller
         $product = Product::where('slug', $product)->firstOrFail();
         $category = ProductCategory::where('slug', $category)->firstOrFail();
         $products = Product::all()->random(3);
+
         return view('web.sections.product', compact('category', 'product', 'products'));
     }
 }

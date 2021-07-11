@@ -13,7 +13,7 @@
                             <div class="info-box">
                                 <div class="info-box-content">
                                     <p class="info-box-title">Llámanos</p>
-                                    <p class="info-box-subtitle">(729) 281 0986</p>
+                                    <p class="info-box-subtitle">728 281 1336</p>
                                 </div>
                             </div>
                         </li>
@@ -50,17 +50,18 @@
                     </button>
                     <div id="navbar-collapse" class="collapse navbar-collapse">
                         <ul class="nav navbar-nav mr-auto w-100 justify-content-between">
-                            <li class="nav-item dropdown active">
-                                <a class="nav-link" href="index.html">Inicio</a>
+                            <li class="nav-item dropdown {{ (request()->is('/')) ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('home') }}">Inicio</a>
                             </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown {{ (request()->is(['reval', 'clientes'])) ? 'active' : '' }}">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">¿Quiénes somos? <i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{ route('story') }}">Historia</a></li>
+                                    {{--<li><a href="{{ route('story') }}">Historia</a></li>--}}
+                                    <li><a href="{{ route('story') }}">Reval</a></li>
                                     <li><a href="{{ route('clients') }}">Clientes</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown {{ (request()->is('productos*')) ? 'active' : '' }}">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Productos <i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{ route('products', 'valvulas') }}">Válvulas</a></li>
@@ -68,8 +69,8 @@
                                     <li><a href="{{ route('products', 'cilindros') }}">Cilindros</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('services') }}">Servicios</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contacto</a></li>
+                            <li class="nav-item {{ (request()->is('servicios')) ? 'active' : '' }}"><a class="nav-link" href="{{ route('services') }}">Servicios</a></li>
+                            <li class="nav-item {{ (request()->is('contacto')) ? 'active' : '' }}"><a class="nav-link" href="{{ route('contact') }}">Contacto</a></li>
                         </ul>
                     </div>
                 </nav>

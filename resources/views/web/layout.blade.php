@@ -40,14 +40,6 @@
 
         @yield('content')
 
-        {{--
-        @include('web.sections/static/banner')
-
-        @include('web.sections/static/ourvalues')
-        
-        @include('web.sections/static/numbers')
-        --}}
-
         <footer id="footer" class="footer bg-overlay">
             @include('web.layout.footer')
         </footer>
@@ -57,6 +49,10 @@
     <script src="{{ asset('plugins/jQuery/jquery.min.js') }}"></script>
     <!-- Bootstrap jQuery -->
     <script src="{{ asset('plugins/bootstrap/bootstrap.min.js') }}" defer></script>
+
+    <!-- Slick Carousel -->
+    <script src="plugins/slick/slick.min.js"></script>
+    <script src="plugins/slick/slick-animation.min.js"></script>
 
     {{--
     <!-- Color box -->

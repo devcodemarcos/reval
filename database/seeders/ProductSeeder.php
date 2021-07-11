@@ -45,5 +45,24 @@ class ProductSeeder extends Seeder
                 'product_category_id' => 1
             ]);
         }
+
+        $regulators = [
+            'Regulador de presion 400' => [
+                'slug' => 'regulador-presion-400',
+                'photo' => 'regulador-presion-400.jpg'
+            ]
+        ];
+
+        foreach ($regulators as $regulator => $properties) {
+            DB::table('products')->insert([
+                'name' => $regulator,
+                'slug' => $properties['slug'],
+                'description' => 'El propósito de la válvula modelo 400 de Reval es el de reducir la entrada de presión de alta a baja y mantenerla baja. El cambio de la presión de entrada puede ser de variación pequeña, regular, grande o con inesperados cambios de energía, pero la presión de salida permanecerá constante.',
+                'photo' => $properties['photo'],
+                'file' => Hash::make('file') . '.pdf',
+                'tags' => 'Valvulas,Reguladores,Reval,Toluca,Calidad,Innovacion',
+                'product_category_id' => 2
+            ]);
+        }
     }
 }

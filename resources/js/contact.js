@@ -5,7 +5,6 @@ initialize = () => {
     const latitude = 19.3134866;
     const longitude = -99.4668665;
     const mapMarker = $('#map').attr('data-marker');
-    const mapMarkerName = $('#map').attr('data-marker-name');
     const lerma = new google.maps.LatLng(latitude, longitude);
 
     const mapOptions = {
@@ -83,3 +82,40 @@ mapsSelector = () => {
         window.open("maps://maps.google.com/maps?daddr=19.3134866,-99.4668665&amp;ll="); else /* else use Google */
         window.open("https://maps.google.com/maps?daddr=19.3134866,-99.4668665&amp;ll=");
 }
+
+$('#contact-form').validate({
+    rules: {
+        name: {
+            required: true
+        },
+        email: {
+            required: true,
+            email: true
+        },
+        phone: {
+            maxlength: 10,
+            minlength: 10,
+            digits: true
+        },
+        message: {
+            required: true
+        }
+    },
+    messages: {
+        name: {
+            required: 'Su nombre es requerido'
+        },
+        email: {
+            required: 'Su correo electrónico es requerido',
+            email: 'Ingrese un correo válido'
+        },
+        phone: {
+            maxlength: 'Ingrese 10 dígitos máximo',
+            minlength: 'Ingrese 10 dígitos mínimo',
+            digits: 'Solo dígitos'
+        },
+        message: {
+            required: 'Su mensaje es requerido'
+        }
+    }
+});
